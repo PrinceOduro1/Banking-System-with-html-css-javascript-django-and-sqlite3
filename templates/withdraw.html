@@ -1,0 +1,16 @@
+<div class="main-content">
+    <div class="card">
+        <h2>Withdraw Funds</h2>
+        {%for message in messages%}
+        <p style="color:red;">{{message}}
+        {%endfor%}
+        <form id="deposit-form" action="withdraw" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="with_amount" name="with_amount" required>
+            </div>
+            <button type="submit">Withdraw</button>
+        </form>
+    </div>
+</div>

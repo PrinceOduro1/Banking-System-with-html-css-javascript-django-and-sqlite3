@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Options</title>
+    <style>
+        /* Reset default browser styles */
+body, h1, p, button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set default font */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header img {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Options styles */
+.options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.option {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 10px 20px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.option:hover {
+    background-color: #0056b3;
+}
+
+/* Features styles */
+.features {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.features h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.feature {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.feature img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Testimonials styles */
+.testimonials {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.testimonials h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.testimonial .author {
+    font-style: italic;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+}
+
+    </style>
+</head>
+<body>
+    {% load static %}
+    <div class="container">
+        <header>
+            <img src={% static 'images/bankLogo.jpg' %} alt="Bank Logo">
+            <h1>Welcome to Our Bank,{{user_name}}</h1>
+        </header>
+        <div class="intro-text">
+            <p></p>
+            <p>Manage your finances easily with our online banking services. Choose from the options below to get started:</p>
+        </div>
+        <div class="options">
+            <button class="option" onclick="location.href='{% url 'change_pin'%}'">Change Pin</button>
+            <button class="option" onclick="location.href='{% url 'check_balance' user_name %}'">Check Balance</button>
+            <button class="option" onclick="location.href='{% url 'withdraw'%}'">Withdraw</button>
+            <button class="option" onclick="location.href='{% url 'deposit'%}'">Deposit</button>
+            <button class="option" onclick="location.href='{% url 'transactions' user_name%}'">Transactions</button>
+            <button class="option" onclick="location.href='{% url 'logout'%}'">Logout</button>
+        </div>
+        <section class="features">
+            <h2>Why Choose Our Bank?</h2>
+            <div class="feature">
+                <img src={% static 'images/convenience.jpg' %} alt="Convenience Icon">
+                <h3>Convenience</h3>
+                <p>Access your account anytime, anywhere with our online banking platform.</p>
+            </div>
+            <div class="feature">
+                <img src={% static 'images/security.jpg' %} alt="Security Icon">
+                <h3>Security</h3>
+                <p>Your transactions are secured with advanced encryption technology, ensuring your peace of mind.</p>
+            </div>
+            <div class="feature">
+                <img src={% static 'images/flexible.png' %} alt="Flexibility Icon">
+                <h3>Flexibility</h3>
+                <p>Customize your banking experience to fit your unique financial needs.</p>
+            </div>
+        </section>
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial">
+                <p>"I've been using Our Bank for years and I'm extremely satisfied with their services. Highly recommended!"</p>
+                <p class="author">- John Doe</p>
+            </div>
+            <div class="testimonial">
+                <p>"The online banking experience at Our Bank is top-notch. It's user-friendly and secure."</p>
+                <p class="author">- Jane Smith</p>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2024 Our Bank. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

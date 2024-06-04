@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plutus Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Plutus</div>
+            <div class="menu-item" id="dashboard-link">Dashboard</div>
+            <div class="menu-item" id="transfer-link">Transfer</div>
+            <div class="menu-item" id="transactions-link">Withdrawal</div>
+            <div class="menu-item" id="deposit-link">Deposit</div>
+            {% if user.is_authenticated %}
+            <div class="menu-item" id="change_pin">Change Pin</div>
+            <div class="menu-item" id="logout">Log out</div>
+            {% else %}
+            <div class="menu-item" id="login">Login</div>
+            <div class="menu-item" id="signup">Signup</div>
+            {% endif %}
+        </aside>
+        <main class="main-content">
+            <div id="main-content">
+                <div id="dashboard">
+                    <h1>Dashboard</h1>
+                    <div class="summary">
+                        <div class="card">
+                            <h2>Total Balance</h2>
+                            <p>USD {{ balance }}</p>
+                        </div>
+                    </div>
+                    <div class="statistics card">
+                        <h2>Statistics</h2>
+                        <div style="height: 200px; background: #e3e3e3; border-radius: 10px;">
+                            <!-- Placeholder for the chart -->
+                        </div>
+                    </div>
+                    <div class="goals card">
+                        <h2>Goals</h2>
+                        <p>Summer Vacation: 62% reached</p>
+                    </div>
+                    <div class="spending-overview card">
+                        <h2>Spending Overview</h2>
+                        <div style="height: 100px; background: #e3e3e3; border-radius: 10px;">
+                            <!-- Placeholder for spending overview -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="transactions-content" class="transactions-content">
+                <!-- Transactions content will be loaded here by JavaScript -->
+            </div>
+        </main>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{%load static%}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change PIN</title>
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<style>
+  
+    .card {
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    
+    .input-group {
+        margin-bottom: 15px;
+    }
+    
+    .input-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    
+    .input-group button {
+        width: 100%;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .input-group button:hover {
+        background-color: #0056b3;
+    }
+</style>    
+</head>
+<body>
+
+
+    <div class="main-content">
+        <div class="card">
+            <h2>Change PIN</h2>
+            <form action="change_pin" method="POST">
+                {% csrf_token %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+                <div class="input-group">
+                    <label for="current-pin">Current PIN</label>
+                    <input type="password" id="current-pin" name="currentPin" required>
+                </div>
+                <div class="input-group">
+                    <label for="new-pin">New PIN</label>
+                    <input type="password" id="new-pin" name="new-pin" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-new-pin">Confirm New PIN</label>
+                    <input type="password" id="confirm-new-pin" name="confirm-new-pin" required>
+                </div>
+                <div class="input-group">
+                    <button type="submit">Change PIN</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
